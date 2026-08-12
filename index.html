@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cinema Smada</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="aset/cimada.png" type="image/x-icon" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav></nav>
+    <!-- body text -->
+
+<!-- note -->
+    <div class="note-container">
+      <h3 onclick="showNote()">Note!</h3>
+      <p id="note" class="note">
+        Note: This website is still under development. Some features may not
+        work as expected.
+      </p>
+      <button class="btn-note" id="note-btn" onclick="hideNote()">Hide</button>
+    </div>
+<!-- end note -->
+
+<!-- content -->
+    <div class="content">
+      <h1 class="title">Welcome to Cinema Smada</h1>
+      <h3 class="title">Choose your movie</h3>
+    </div>
+
+  <!-- movie-content -->
+   <div class="container">
+      <div id="comedy" class="cont">
+        <img src="aset/comedy.png" alt="Comedy" class="img"/>
+        <p>
+          "Comedy movies are a genre of film that aims to entertain and amuse
+          the audience through humor, wit, and lighthearted storytelling."
+        </p>
+      </div>
+      <div id="horor" style="display: none">
+        <img src="aset/horor.png" alt="Horor" class="img"/>
+        <p>
+          "Horor movies are a genre of film that aims to evoke fear, suspense,
+          and tension in the audience."
+        </p>
+      </div>
+    
+
+     <!-- button -->
+          <button class="btn" onclick="comedy()">Comedy</button>
+          <button class="btn" onclick="horor()">Horor</button>
+          <button class="reset" id="reset-btn" onclick="reset()">Reset</button>
+    </div>
+  <!-- end content -->
+  </body>
+</html>

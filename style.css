@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* note style */
+.note-container {
+  display: block;
+  position: sticky;
+  top: 0;
+  text-align: center;
+  width: auto;
+  color: black;
+  border: rgb(0, 0, 139) solid 2px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.note {
+  display: none;
+  width: auto;
+  text-align: center;
+  padding: 10px;
+  color: black;
+  border: none;
+}
+
+.btn-note {
+  display: none;
+  margin: 10px;
+  padding: 10px;
+  border: rgb(0, 0, 139) solid 2px;
+  border-radius: 32px;
+  background-color: white;
+}
+.content {
+  display: block;
+  text-align: center;
+}
+
+/* -----------------note-------------------- */
+
+/* content style */
+
+.img {
+  width: 500px;
+  height: auto;
+}
+
+.container{
+  display: block;
+  text-align: center;
+  justify-content: center;
+}
+
+.cont{
+  display:none;
+}
+
+/* BUTTON CONTENT STYLE */
+
+.btn {
+  display: inline;
+  width: 200px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  font-size: 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: blue solid 2px;
+  border-radius: 32px;
+  background-color: white;
+}
+
+.btn:hover {
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+  position: relative;
+}
+
+.btn:active {
+  background-color: rgb(0, 0, 139);
+}
+
+
+.reset {
+  display: none;
+  justify-content: center;
+  width: auto;
+  margin: 20px auto;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: red solid 2px;
+  border-radius: 32px;
+  background-color: white;
+}
+.reset:hover {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
