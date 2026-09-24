@@ -1,58 +1,471 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cinema Smada</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="aset/cimada.png" type="image/x-icon" />
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav></nav>
-    <!-- body text -->
 
-<!-- note -->
-    <div class="note-container">
-      <h3 onclick="showNote()">Note!</h3>
-      <p id="note" class="note">
-        Note: This website is still under development. Some features may not
-        work as expected.
-      </p>
-      <button class="btn-note" id="note-btn" onclick="hideNote()">Hide</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Cinema Smada - Your premier destination for cinematic excellence. Discover top Comedy, Horror, and curated movie experiences with 4K laser projection." />
+  <title>Cinema Smada | Premier Movie Experience</title>
+  <!-- Favicon -->
+  <link rel="icon" href="aset/cimada.png" type="image/png" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <!-- Ambient Background Dynamic Glow -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- Announcement / Under Development Note (Sticky Top) -->
+  <div class="note-container" id="note-container">
+    <div class="note-header-wrap" onclick="showNote()" title="Click to view development update">
+      <span class="note-badge-dot"></span>
+      <h3>
+        Note!
+        <span class="note-hint">(Click to view update)</span>
+      </h3>
     </div>
-<!-- end note -->
+    <p id="note" class="note">
+      Note: This website is still under development. Some features may not work as expected.
+    </p>
+    <button class="btn-note" id="note-btn" onclick="hideNote()">Hide Notice</button>
+  </div>
+  <!-- End Note -->
 
-<!-- content -->
-    <div class="content">
-      <h1 class="title">Welcome to Cinema Smada</h1>
-      <h3 class="title">Choose your movie</h3>
-    </div>
-
-  <!-- movie-content -->
-   <div class="container">
-      <div id="comedy" class="cont">
-        <img src="aset/comedy.png" alt="Comedy" class="img"/>
-        <p>
-          "Comedy movies are a genre of film that aims to entertain and amuse
-          the audience through humor, wit, and lighthearted storytelling."
-        </p>
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#" class="nav-brand" aria-label="Cinema Smada Home">
+      <div class="nav-logo-box">
+        <img src="aset/cimada.png" alt="Cinema Smada Logo" class="nav-logo-img" />
       </div>
-      <div id="horor" style="display: none">
-        <img src="aset/horor.png" alt="Horor" class="img"/>
-        <p>
-          "Horor movies are a genre of film that aims to evoke fear, suspense,
-          and tension in the audience."
-        </p>
+      <div class="nav-brand-text">
+        <span class="brand-title">CINEMA SMADA</span>
+        <span class="brand-subtitle">The Premium Theater</span>
       </div>
-    
+    </a>
 
-     <!-- button -->
-          <button class="btn" onclick="comedy()">Comedy</button>
-          <button class="btn" onclick="horor()">Horor</button>
-          <button class="reset" id="reset-btn" onclick="reset()">Reset</button>
+    <ul class="nav-links">
+      <li><a href="#movies-section" class="nav-link">Featured Genres</a></li>
+      <li><a href="#cafe-section" class="nav-link">Cinema Café</a></li>
+      <li><a href="#experience-section" class="nav-link">Experience</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="#movies-section" class="nav-btn-ticket" onclick="comedy()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+          <circle cx="12" cy="12" r="2"></circle>
+          <path d="M6 12h.01M18 12h.01"></path>
+        </svg>
+        Explore Movies
+      </a>
     </div>
-  <!-- end content -->
-  </body>
+  </nav>
+  <!-- End Navbar -->
+
+  <!-- Main Content Header -->
+  <header class="content" id="hero-header">
+    <div class="hero-pill-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+        <polygon
+          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+        </polygon>
+      </svg>
+      Now Streaming at Cinema Smada
+    </div>
+    <h1 class="title">Welcome to Cinema Smada</h1>
+    <h3 class="title">Immerse yourself in stories that thrill, delight, and captivate. Choose your movie genre below to
+      reveal tonight's curated showcase.</h3>
+
+    <div class="hero-specs">
+      <div class="spec-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="3" width="20" height="14" rx="2" />
+          <line x1="8" y1="21" x2="16" y2="21" />
+          <line x1="12" y1="17" x2="12" y2="21" />
+        </svg>
+        4K Laser Projection
+      </div>
+      <div class="spec-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path
+            d="M12 2a10 10 0 0 1 10 10c0 4.42-2.87 8.17-6.84 9.5-.5.08-.66-.23-.66-.5v-1.69c0-.62-.22-1.07-.46-1.28 2.53-.28 5.19-1.26 5.19-5.63a4.4 4.4 0 0 0-1.18-3.05 4.1 4.1 0 0 0-.11-3.01s-.97-.31-3.18 1.18a10.9 10.9 0 0 0-5.78 0C6.96 6.36 5.99 6.67 5.99 6.67a4.1 4.1 0 0 0-.11 3.01A4.4 4.4 0 0 0 4.7 12.73c0 4.35 2.64 5.35 5.17 5.64-.19.17-.37.49-.43.95-.39.18-1.39.48-2-.58 0 0-.37-.67-1.07-.72 0 0-.68-.01-.05.42 0 0 .46.22.77 1.05.18.49.65 1.44 2.32 1.01v1.17c0 .26-.17.57-.68.49C4.87 20.17 2 16.42 2 12A10 10 0 0 1 12 2z" />
+        </svg>
+        Dolby Atmos 7.1
+      </div>
+      <div class="spec-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+        Zero-Gravity VIP Recliners
+      </div>
+    </div>
+  </header>
+  <!-- End Content Header -->
+
+  <!-- Movie Showcase Section -->
+  <main class="container" id="movies-section">
+    <!-- Interactive Genre Controls -->
+    <div class="controls-container">
+      <button class="btn btn-comedy" id="btn-comedy" onclick="comedy()" aria-label="Select Comedy Genre">
+        <span class="btn-icon">😂</span>
+        <span>Comedy</span>
+      </button>
+      <button class="btn btn-horor" id="btn-horor" onclick="horor()" aria-label="Select Horor Genre">
+        <span class="btn-icon">👻</span>
+        <span>Horor</span>
+      </button>
+      <button class="reset" id="reset-btn" onclick="reset()" aria-label="Reset Selected Genre">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+          <path d="M3 3v5h5"></path>
+        </svg>
+        <span>Reset Selection</span>
+      </button>
+    </div>
+
+    <!-- Default Prompt (Shown when no genre is selected) -->
+    <div class="showcase-prompt" id="showcase-prompt">
+      <div class="prompt-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+          <line x1="7" y1="2" x2="7" y2="22"></line>
+          <line x1="17" y1="2" x2="17" y2="22"></line>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <line x1="2" y1="7" x2="7" y2="7"></line>
+          <line x1="2" y1="17" x2="7" y2="17"></line>
+          <line x1="17" y1="17" x2="22" y2="17"></line>
+          <line x1="17" y1="7" x2="22" y2="7"></line>
+        </svg>
+      </div>
+      <h3 class="prompt-title">Ready for the Show?</h3>
+      <p class="prompt-text">Click <strong>Comedy</strong> for laugh-out-loud entertainment or <strong>Horor</strong>
+        for pulse-pounding chills and suspense.</p>
+    </div>
+
+    <!-- Comedy Showcase Card -->
+    <div id="comedy" class="cont">
+      <div class="movie-layout">
+        <!-- Poster Column -->
+        <div class="poster-wrapper">
+          <span class="poster-badge badge-comedy">⭐ Trending Comedy</span>
+          <img src="aset/poster_comedy.jpg" alt="The Grand Laugh - Comedy Movie Poster" class="img" />
+        </div>
+
+        <!-- Movie Info Column -->
+        <div class="movie-details">
+          <div class="movie-header-tags">
+            <span class="tag-pill tag-rating">★ 4.9 / 5 (1,240 votes)</span>
+            <span class="tag-pill">PG-13</span>
+            <span class="tag-pill">1h 54m</span>
+            <span class="tag-pill">Cinema 1 • Dolby Atmos</span>
+          </div>
+
+          <h2 class="movie-title-featured">The Grand Laugh</h2>
+
+          <!-- Original Quote Preserved & Styled -->
+          <p>
+            "Comedy movies are a genre of film that aims to entertain and amuse
+            the audience through humor, wit, and lighthearted storytelling."
+          </p>
+
+          <div class="movie-meta-grid">
+            <div class="meta-box">
+              <span class="meta-label">Starring</span>
+              <span class="meta-value">Emma Stone, Jason Sudeikis</span>
+            </div>
+            <div class="meta-box">
+              <span class="meta-label">Director</span>
+              <span class="meta-value">Cinema Smada Studios</span>
+            </div>
+            <div class="meta-box">
+              <span class="meta-label">Showtimes Today</span>
+              <span class="meta-value">14:00 • 17:30 • 20:45</span>
+            </div>
+          </div>
+
+          <div class="movie-actions">
+            <button class="action-btn-primary" onclick="openTrailer('The Grand Laugh', 'aset/poster_comedy.jpg')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              Watch Trailer
+            </button>
+            <button class="action-btn-secondary"
+              onclick="showToast('🎟 Tickets reserved for The Grand Laugh! Show at Cinema 1.')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 9h16v12H4z"></path>
+                <circle cx="12" cy="15" r="2"></circle>
+              </svg>
+              Book Tickets
+            </button>
+            <button class="action-btn-secondary" onclick="showToast('❤️ Added to your watchlist!')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                </path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Horor Showcase Card -->
+    <div id="horor" style="display: none">
+      <div class="movie-layout">
+        <!-- Poster Column -->
+        <div class="poster-wrapper">
+          <span class="poster-badge badge-horor">💀 High Tension Horor</span>
+          <img src="aset/poster_horor.jpg" alt="The Whispering Shadows - Horror Movie Poster" class="img" />
+        </div>
+
+        <!-- Movie Info Column -->
+        <div class="movie-details">
+          <div class="movie-header-tags">
+            <span class="tag-pill tag-rating">★ 4.8 / 5 (980 votes)</span>
+            <span class="tag-pill" style="color: #ff477e; border-color: rgba(255, 71, 126, 0.4);">17+ Audience
+              Discretion</span>
+            <span class="tag-pill">2h 02m</span>
+            <span class="tag-pill">Cinema 3 • 4K Laser</span>
+          </div>
+
+          <h2 class="movie-title-featured">The Whispering Shadows</h2>
+
+          <!-- Original Quote Preserved & Styled -->
+          <p>
+            "Horor movies are a genre of film that aims to evoke fear, suspense,
+            and tension in the audience."
+          </p>
+
+          <div class="movie-meta-grid">
+            <div class="meta-box">
+              <span class="meta-label">Starring</span>
+              <span class="meta-value">Sarah Jenkins, Michael Smith</span>
+            </div>
+            <div class="meta-box">
+              <span class="meta-label">Director</span>
+              <span class="meta-value">Elias Thorn</span>
+            </div>
+            <div class="meta-box">
+              <span class="meta-label">Showtimes Today</span>
+              <span class="meta-value">19:15 • 21:45 • Midnight (23:59)</span>
+            </div>
+          </div>
+
+          <div class="movie-actions">
+            <button class="action-btn-primary"
+              style="background: linear-gradient(135deg, #ff2a5f 0%, #b5179e 100%); color: #fff;"
+              onclick="openTrailer('The Whispering Shadows', 'aset/poster_horor.jpg')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              Watch Trailer
+            </button>
+            <button class="action-btn-secondary"
+              onclick="showToast('🎟 Tickets reserved for The Whispering Shadows! Show at Cinema 3.')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 9h16v12H4z"></path>
+                <circle cx="12" cy="15" r="2"></circle>
+              </svg>
+              Book Tickets
+            </button>
+            <button class="action-btn-secondary" onclick="showToast('❤️ Added to your watchlist!')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                </path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- End Movie Showcase Section -->
+
+  <!-- Cinema Café & Concessions Section (Featuring coffee1.png) -->
+  <section class="cinema-lounge-section" id="cafe-section">
+    <div class="lounge-card">
+      <div class="lounge-img-wrapper">
+        <img src="aset/coffee1.png" alt="Cinema Smada Gourmet Café and Lounge" class="lounge-img" />
+      </div>
+      <div class="lounge-content">
+        <span class="lounge-badge">☕ Cinema Smada Concessions</span>
+        <h2 class="lounge-title">The Cinema Smada Lounge & Café</h2>
+        <p class="lounge-desc">
+          Elevate your theater visit with fresh espresso, buttery artisan popcorn, decadent desserts, and handcrafted
+          beverages delivered right to your VIP recliner.
+        </p>
+        <div class="lounge-perks-list">
+          <div class="lounge-perk-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Freshly Brewed Coffee
+          </div>
+          <div class="lounge-perk-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Gourmet Truffle Popcorn
+          </div>
+          <div class="lounge-perk-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            In-Seat Seat Delivery
+          </div>
+          <div class="lounge-perk-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Chill Pre-Show Lounge
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Perks Section -->
+  <section class="features-section" id="experience-section">
+    <div class="features-title-wrap">
+      <h2 class="features-title">The Smada Theater Experience</h2>
+      <p class="features-subtitle">Equipped with cutting-edge visual and auditory technology for ultimate cinema
+        immersion.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon-box">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M12 2a10 10 0 0 1 10 10c0 4.42-2.87 8.17-6.84 9.5-.5.08-.66-.23-.66-.5v-1.69c0-.62-.22-1.07-.46-1.28 2.53-.28 5.19-1.26 5.19-5.63a4.4 4.4 0 0 0-1.18-3.05 4.1 4.1 0 0 0-.11-3.01s-.97-.31-3.18 1.18a10.9 10.9 0 0 0-5.78 0C6.96 6.36 5.99 6.67 5.99 6.67a4.1 4.1 0 0 0-.11 3.01A4.4 4.4 0 0 0 4.7 12.73c0 4.35 2.64 5.35 5.17 5.64-.19.17-.37.49-.43.95-.39.18-1.39.48-2-.58 0 0-.37-.67-1.07-.72 0 0-.68-.01-.05.42 0 0 .46.22.77 1.05.18.49.65 1.44 2.32 1.01v1.17c0 .26-.17.57-.68.49C4.87 20.17 2 16.42 2 12A10 10 0 0 1 12 2z" />
+          </svg>
+        </div>
+        <h3 class="feature-card-title">Dolby Atmos Sound</h3>
+        <p class="feature-card-desc">Crystal clear 360-degree acoustic immersion with overhead multidimensional sound
+          channels.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-box">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="17" x2="12" y2="21" />
+          </svg>
+        </div>
+        <h3 class="feature-card-title">4K Laser Clarity</h3>
+        <p class="feature-card-desc">Breathtaking contrast ratios and vibrant HDR color spectrum on expansive curved
+          screens.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-box">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+          </svg>
+        </div>
+        <h3 class="feature-card-title">VIP Reclining Comfort</h3>
+        <p class="feature-card-desc">Full ergonomic motorized leather recliners with USB charging ports and private
+          tables.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-box">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+        </div>
+        <h3 class="feature-card-title">Instant Seat Reservation</h3>
+        <p class="feature-card-desc">Pick your favorite seat in real-time with contactless check-in right from your
+          phone.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trailer Interactive Modal -->
+  <div class="trailer-modal" id="trailer-modal" role="dialog" aria-modal="true" aria-labelledby="modal-movie-title">
+    <div class="modal-content-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-movie-title">Movie Trailer</h3>
+        <button class="modal-close-btn" onclick="closeTrailer()" aria-label="Close Trailer Modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="simulated-screen">
+          <img id="modal-screen-poster" src="aset/poster_comedy.jpg" alt="Trailer Preview"
+            class="simulated-screen-poster" />
+          <div class="play-pulse-btn" onclick="showToast('▶ Playing Cinema Smada 4K Preview...')">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </div>
+        </div>
+        <p class="trailer-caption">Cinema Smada Exclusive 4K UHD Preview • Dolby Atmos Certified Experience</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand-wrap">
+          <img src="aset/cimada.png" alt="Cinema Smada Logo" class="footer-logo" />
+          <div>
+            <strong style="color: #fff; font-family: var(--font-heading); font-size: 1.1rem; display: block;">Cinema
+              Smada</strong>
+            <span class="footer-text">Premier Movie Experience & Modern Cinema Hall</span>
+          </div>
+        </div>
+
+        <div class="footer-socials">
+          <a href="#" class="social-circle" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="#" class="social-circle" aria-label="Twitter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+              </path>
+            </svg>
+          </a>
+          <a href="#" class="social-circle" aria-label="YouTube">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+              </path>
+              <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Cinema Smada. All rights reserved. Designed for film enthusiasts with passion.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
 </html>
